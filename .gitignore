@@ -1,0 +1,6 @@
+output_tracked.mp4
+rtdetr-l.pt
+
+# Optional: generated artifacts
+*.avi
+*.mov
