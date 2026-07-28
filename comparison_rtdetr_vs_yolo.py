@@ -9,7 +9,6 @@ def benchmark(model_name, video_path, max_frames=100):
     model = YOLO(model_name)
     cap = cv.VideoCapture(video_path)
 
-    # warmup — run 5 frames before timing
     for _ in range(5):
         ret, frame = cap.read()
         if ret:
@@ -32,9 +31,9 @@ def benchmark(model_name, video_path, max_frames=100):
 
     cap.release()
     print(f"\n{model_name}")
-    print(f"  FPS:              {fps:.1f}")
-    print(f"  Avg detections:   {total_dets / max_frames:.1f} per frame")
+    print(f"FPS:              {fps:.1f}")
+    print(f"Avg detections:   {total_dets / max_frames:.1f} per frame")
 
 benchmark("yolo11n.pt", video_path)
-benchmark("yolo11m.pt", video_path)   # downloads ~40MB first run
-benchmark("rtdetr-l.pt", video_path)  # downloads ~120MB first run
+benchmark("yolo11m.pt", video_path)   
+benchmark("rtdetr-l.pt", video_path)  
